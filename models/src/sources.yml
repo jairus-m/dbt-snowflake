@@ -1,0 +1,41 @@
+version: 1
+sources:
+  - name: airbnb
+    description: source airbnb data
+    database: airbnb
+    schema: raw
+    tables:
+      - name: listings
+        identifier: raw_listings
+        description: airbnb listings
+        columns:
+          - name: id
+            description: unique ID for each airbnb listing (primary host)
+            tests: 
+              - unique
+              - not_null
+
+      - name: reviews
+        identifier: raw_reviews
+        description: airbnb listing reviews
+        loaded_at_field: date
+        freshness:
+          warn_after: {count: 1, period: hour}
+          error_after: {count: 24, period: hour}
+        columns:
+          - name: listing_id
+            description: Foreign key to id
+            tests:
+              - relationships:
+                  to: source('airbnb', 'listings')
+                  field: id
+
+      - name: hosts
+        identifier: raw_hosts
+        description: data on airbnb hosts
+        columns:
+          - name: host_id
+            description: unique ID for each airbnb host (primary host)
+            tests:
+              - unique
+              - not_null
