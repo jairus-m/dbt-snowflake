@@ -20,8 +20,8 @@ sources:
         description: airbnb listing reviews
         loaded_at_field: date
         freshness:
-          warn_after: {count: 1, period: hour}
-          error_after: {count: 24, period: hour}
+          warn_after: {count: 1, period: hour} # warning if no fresh data < 1 hr
+          error_after: {count: 24, period: hour} # warning if no fresh data < 24 hr
         columns:
           - name: listing_id
             description: Foreign key to id
