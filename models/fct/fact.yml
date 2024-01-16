@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: fct_reviews
+    description: Airbbnb reviews.
+    columns:
+      - name: listing_id
+        tests:
+          - relationships:
+              to: ref('dim_listings_clean')
+              field: listing_id
+      - name: reviewer_name
+        tests:
+        - not_null

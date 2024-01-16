@@ -2,14 +2,17 @@ version: 2
 
 models:
   - name: dim_listings_clean
+    description: Clean table which contains airbnb listings.
     columns:
 
       - name: listing_id
+        description: Primary key for the listings.
         tests:
         - unique
         - not_null
       
       - name: host_id
+        description: The host's id.
         tests:
          - not_null
          - relationships:
@@ -17,6 +20,7 @@ models:
             field: host_id
             
       - name: room_type
+        description: Type of the apartment / room
         tests:
           - accepted_values:
               values: ['Entire home/apt',
@@ -25,6 +29,22 @@ models:
                       'Hotel room']
       
       - name: minimum_nights
+        description: '{{ doc("dim_listing_clean__minimum_nights") }}'
         tests:
-        - positive_value
+          - positive_value
+
+  - name: dim_hosts_clean
+    description: Clean airbnb hosts table.
+    columns:
+    - name: host_id
+      tests:
+        - not_null
+        - unique
+    - name: host_name
+      tests:
+      - not_null
+    - name: is_superhost
+      tests:
+        - accepted_values:
+            values: ['t', 'f']
 
