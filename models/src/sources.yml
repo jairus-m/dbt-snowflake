@@ -18,6 +18,7 @@ sources:
       - name: reviews
         identifier: raw_reviews
         description: airbnb listing reviews
+        # source freshness
         loaded_at_field: date
         freshness:
           warn_after: {count: 1, period: hour} # warning if no fresh data < 1 hr
@@ -34,7 +35,7 @@ sources:
         identifier: raw_hosts
         description: data on airbnb hosts
         columns:
-          - name: host_id
+          - name: id
             description: unique ID for each airbnb host (primary host)
             tests:
               - unique
