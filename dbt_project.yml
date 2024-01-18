@@ -34,6 +34,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbtlearn:
     +materialized: view
+    +post-hook:
+      - "GRANT SELECT ON {{ this }} TO ROLE REPORTER"
     src:
       # if views already exist, you have to drop them for ephemeral materialization to take effect
       +materialized: ephemeral
