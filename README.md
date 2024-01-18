@@ -1,8 +1,17 @@
 ### Learning dbt project
 
-I am currently in the process of learning dbt so that I can implement it as the main tool for transforming raw data in BigQuery. The goal is to be able to use this project to learn about building data models, learning about DAGs/lineage, version control for data transformations, testing the data, using jinja templating for macros, working in a dbt project folder, debugging in the CLI, creating documentation, and overall, maximing the features of dbt for sustainable/maintainable/scalable data transformations.
+I am currently in the process of learning dbt so that I can implement it as the main tool for transforming raw data in BigQuery. The goal is to be able to use this project to learn about:
+- building data models
+- learning about DAGs/lineage
+- version control for data transformations
+- testing the data
+- using jinja templating for macros
+- working in a dbt project folder
+- debugging in the CLI, creating documentation
 
-After working on this, I will directly use dbt in BigQuery to transform my raw activity data from my [Strava ELT pipelin](https://github.com/jairus-m/StravaETLPipeline). 
+...and overall, maximing the features of dbt for sustainable/maintainable/scalable data transformations.
+
+After building out this example project, I will directly use dbt in BigQuery to transform my raw activity data from my [Strava ELT pipeline](https://github.com/jairus-m/StravaETLPipeline). 
 
 
 ### Resources:
